@@ -9,14 +9,16 @@ A Node JS api to keep track of your todo's.
 
 > #### Authentication
 > Authentication is necessary for all requests. User needs to be in **/users** list and the authentication token from login must be passed on header of all requests.
+>
 > *Example Header:*
 > ```
-> Content-Type: application/json
-> Auth: {token}
+> Content-Type → application/json
+> Auth → {token}
 > ```
 
 ### GET /todos
 Returns an array of todo items
+
 *Return Example:*
 ```json
 [
@@ -46,6 +48,7 @@ Returns an array of todo items
 
 ### GET /todos?completed=true
 Returns an array of todo items according to query.
+
 *Return Example:*
 ```json
 [
@@ -61,6 +64,7 @@ Returns an array of todo items according to query.
 
 ### GET /todos/:id
 Returns todo item json
+
 *Return Example:* /todos/2
 ```json
 {
@@ -74,6 +78,7 @@ Returns todo item json
 
 ### POST /todos
 Inserts a todo on todo's list
+
 *Post Example:*
 ```json
 {
@@ -94,11 +99,14 @@ Inserts a todo on todo's list
 
 ### DELETE /todos/:id
 Deletes a todo by id.
+
 *Example:* /todos/1
+
 *Return:* 204 No Content = Delete successful
 
 ### PUT **/todos/:id**
 Updates todo information.
+
 *Example:* todos/1
 ```json
 {
@@ -118,6 +126,7 @@ Updates todo information.
 
 ### POST /users
 Inserts a new user to database.
+
 *Example:*
 ```json
 {
@@ -137,6 +146,7 @@ Inserts a new user to database.
 
 ### POST /users/login
 Logins user by user's json information.
+
 *Example:*
 ```json
 {
@@ -153,10 +163,20 @@ Logins user by user's json information.
   "updatedAt": "2015-11-27T02:29:13.478Z"
 }
 ```
+! **Returns the authentication token on header.**
+*Return Header:*
+```
+Auth → {token}
+Connection → keep-alive
+Content-Length → 119
+Content-Type → application/json; charset=utf-8
+Date → Fri, 27 Nov 2015 03:33:31 GMT
+```
 
 ## Errors:
 
-No Todo on array position
+No Todo on array position.
+
 *Return:*
 ```json
 {
