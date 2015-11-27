@@ -11,6 +11,14 @@
 <p>A Node JS api to keep track of your todo’s.</p>
 <hr>
 <h2><a id="API_Requests_7"></a>API Requests</h2>
+<blockquote>
+<h4><a id="Authentication_9"></a>Authentication</h4>
+<p>Authentication is necessary for all requests. User needs to be in <strong>/users</strong> list and the authentication token from login must be passed on header of all requests.
+<em>Example Header:</em></p>
+<pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span>
+<span class="hljs-attribute">Auth</span>: <span class="hljs-string">{token}</span>
+</code></pre>
+</blockquote>
 <h3><a id="GET_todos_9"></a>GET /todos</h3>
 <p>Returns an array of todo items.<br/>
 <em>Return Example:</em></p>
