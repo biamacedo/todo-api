@@ -7,6 +7,14 @@ A Node JS api to keep track of your todo's.
 
 ## API Requests
 
+> #### Authentication
+> Authentication is necessary for all requests. User needs to be in **/users** list and the authentication token from login must be passed on header of all requests.
+> *Example Header:*
+> ```
+> Content-Type: application/json
+> Auth: {token}
+> ```
+
 ### GET /todos
 Returns an array of todo items
 *Return Example:*
