@@ -1,27 +1,28 @@
+
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <title>Todo Notes API</title>
     <link rel="stylesheet" href="css/katex.min.css" />
     <link rel="stylesheet" href="css/main.css" />
-  </head>
-  <body id="preview">
+</head>
+<body id="preview">
 <h1><a id="Todo_Notes_API_1"></a>Todo Notes API</h1>
 <p>A Node JS api to keep track of your todo’s.</p>
 <hr>
 <h2><a id="API_Requests_7"></a>API Requests</h2>
 <blockquote>
 <h4><a id="Authentication_9"></a>Authentication</h4>
-<p>Authentication is necessary for all requests. User needs to be in <strong>/users</strong> list and the authentication token from login must be passed on header of all requests.
-<em>Example Header:</em></p>
-<pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span>
-<span class="hljs-attribute">Auth</span>: <span class="hljs-string">{token}</span>
+<p>Authentication is necessary for all requests. User needs to be in <strong>/users</strong> list and the authentication token from login must be passed on header of all requests.</p>
+<p><em>Example Header:</em></p>
+<pre><code>Content-<span class="hljs-keyword">Type</span> → application/json
+Auth → {<span class="hljs-keyword">token</span>}
 </code></pre>
 </blockquote>
-<h3><a id="GET_todos_9"></a>GET /todos</h3>
-<p>Returns an array of todo items.<br/>
-<em>Return Example:</em></p>
+<h3><a id="GET_todos_18"></a>GET /todos</h3>
+<p>Returns an array of todo items</p>
+<p><em>Return Example:</em></p>
 <pre><code class="language-json">[
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
@@ -46,9 +47,9 @@
   </span>}
 ]
 </code></pre>
-<h3><a id="GET_todoscompletedtrue_38"></a>GET /todos?completed=true</h3>
-<p>Returns an array of todo items according to query.<br/>
-<em>Return Example:</em></p>
+<h3><a id="GET_todoscompletedtrue_48"></a>GET /todos?completed=true</h3>
+<p>Returns an array of todo items according to query.</p>
+<p><em>Return Example:</em></p>
 <pre><code class="language-json">[
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
@@ -59,9 +60,9 @@
   </span>}
 ]
 </code></pre>
-<h3><a id="GET_todosid_53"></a>GET /todos/:id</h3>
-<p>Returns todo item json.<br/>
-<em>Return Example:</em> /todos/2</p>
+<h3><a id="GET_todosid_64"></a>GET /todos/:id</h3>
+<p>Returns todo item json</p>
+<p><em>Return Example:</em> /todos/2</p>
 <pre><code class="language-json">{
   "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
   "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"My Second Todo"</span></span>,
@@ -70,9 +71,9 @@
   "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2015-11-27T02:36:12.406Z"</span>
 </span>}
 </code></pre>
-<h3><a id="POST_todos_66"></a>POST /todos</h3>
-<p>Inserts a todo on todo’s list.<br/>
-<em>Post Example:</em></p>
+<h3><a id="POST_todos_78"></a>POST /todos</h3>
+<p>Inserts a todo on todo’s list</p>
+<p><em>Post Example:</em></p>
 <pre><code class="language-json">{
     "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"My First Todo"</span></span>,
     "<span class="hljs-attribute">completed</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
@@ -87,13 +88,13 @@
   "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2015-11-27T02:30:27.246Z"</span>
 </span>}
 </code></pre>
-<h3><a id="DELETE_todosid_86"></a>DELETE /todos/:id</h3>
-<p>Deletes a todo by id.<br/>
-<em>Example:</em> /todos/1
-<em>Return:</em> 204 No Content = Delete successful</p>
-<h3><a id="PUT_todosid_91"></a>PUT <strong>/todos/:id</strong></h3>
-<p>Updates todo information.<br/>
-<em>Example:</em> todos/1</p>
+<h3><a id="DELETE_todosid_99"></a>DELETE /todos/:id</h3>
+<p>Deletes a todo by id.</p>
+<p><em>Example:</em> /todos/1</p>
+<p><em>Return:</em> 204 No Content = Delete successful</p>
+<h3><a id="PUT_todosid_106"></a>PUT <strong>/todos/:id</strong></h3>
+<p>Updates todo information.</p>
+<p><em>Example:</em> todos/1</p>
 <pre><code class="language-json">{
   "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Updated Todo"</span>
 </span>}
@@ -107,9 +108,9 @@
   "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2015-11-27T02:30:48.460Z"</span>
 </span>}
 </code></pre>
-<h3><a id="POST_users_110"></a>POST /users</h3>
-<p>Inserts a new user to database.<br/>
-<em>Example:</em></p>
+<h3><a id="POST_users_126"></a>POST /users</h3>
+<p>Inserts a new user to database.</p>
+<p><em>Example:</em></p>
 <pre><code class="language-json">{
     "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"admin@example.com"</span></span>,
     "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"abc123456"</span>
@@ -123,9 +124,9 @@
   "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2015-11-27T02:29:13.478Z"</span>
 </span>}
 </code></pre>
-<h3><a id="POST_userslogin_129"></a>POST /users/login</h3>
-<p>Logins user by user’s json information.<br/>
-<em>Example:</em></p>
+<h3><a id="POST_userslogin_146"></a>POST /users/login</h3>
+<p>Logins user by user’s json information.</p>
+<p><em>Example:</em></p>
 <pre><code class="language-json">{
     "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"admin@example.com"</span></span>,
     "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"abc123456"</span>
@@ -139,12 +140,21 @@
   "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2015-11-27T02:29:13.478Z"</span>
 </span>}
 </code></pre>
-<h2><a id="Errors_148"></a>Errors:</h2>
-<p>No Todo on array position.<br/>
-<em>Return:</em></p>
+<p>! <strong>Returns the authentication token on header.</strong>
+<em>Return Header:</em></p>
+<pre><code>Auth → {token}
+Connection → keep-alive
+Content-Length → <span class="hljs-number">119</span>
+Content-Type → application/json; charset=utf-<span class="hljs-number">8</span>
+Date → Fri, <span class="hljs-number">27</span> Nov <span class="hljs-number">2015</span> <span class="hljs-number">03</span>:<span class="hljs-number">33</span>:<span class="hljs-number">31</span> GMT
+</code></pre>
+<h2><a id="Errors_175"></a>Errors:</h2>
+<p>No Todo on array position.</p>
+<p><em>Return:</em></p>
 <pre><code class="language-json">{
   "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"No todo found with that id."</span>
 </span>}
 </code></pre>
+<h6><a id="Created_by_Beatriz_Macedo_186"></a>Created by Beatriz Macedo</h6>
 
 </body></html>
