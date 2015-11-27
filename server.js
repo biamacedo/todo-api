@@ -14,8 +14,13 @@ var todoNextId = 1;
 
 app.use(bodyParser.json());
 
+//Serve static content for the app from the "public" directory in the application directory.
+// GET /css/main.css etc
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', function(req, res) {
-	res.send('Todo API Root');
+	//res.send('Todo API Root');
+	res.sendFile(__dirname + '/public/index.html');
 });
 
 // GET /todos or /todos?completed=true&q=house
@@ -23,10 +28,10 @@ app.get('/todos', middleware.requireAuthentication,  function(req, res) {
 	var query = req.query;
 	var where = {};
 
-	if (query.hasOwnProperty('completed') 
+	if (query.hasOwnProperty('completed')
 		&& query.completed === 'true') {
 		where.completed = true;
-	} else if (query.hasOwnProperty('completed') 
+	} else if (query.hasOwnProperty('completed')
 		&& query.completed === 'false') {
 		where.completed = false;
 	}
@@ -84,7 +89,7 @@ app.delete('/todos/:id', middleware.requireAuthentication, function(req, res) {
 			id: todoId
 		}
 	}).then(function(rowsDeleted){
-		if (rowsDeleted === 0) {  
+		if (rowsDeleted === 0) {
 			res.status(404).json({
 				"error": "No todo found with that id."
 			});
@@ -105,12 +110,12 @@ app.put('/todos/:id', middleware.requireAuthentication, function(req, res) {
 	// Validate Completed
 	if (body.hasOwnProperty('completed')) {
 		attributes.completed = body.completed;
-	} 
+	}
 
 	// Validate Description
 	if (body.hasOwnProperty('description')) {
 		attributes.description = body.description
-	} 
+	}
 
 	db.todo.findById(todoId).then(function(todo){
  		if (todo){
@@ -150,7 +155,7 @@ app.post('/users/login', function(req, res){
 		} else {
 			res.status(401).send();
 		}
-		
+
 	}, function(){
 		res.status(401).send();
 	});
@@ -162,4 +167,3 @@ db.sequelize.sync({force: true}).then(function(){
 		console.log('Express listening on port ' + PORT + '!');
 	});
 });
-
