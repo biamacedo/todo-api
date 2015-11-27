@@ -2,7 +2,6 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var _ = require('underscore');
 var db = require('./db.js');
-var bcrypt = require('bcryptjs');
 var middleware = require('./middleware.js')(db);
 
 var app = express();
@@ -73,7 +72,11 @@ app.post('/todos', middleware.requireAuthentication, function(req, res) {
 	var body = _.pick(req.body, 'description', 'completed');
 
 	db.todo.create(body).then(function(todo){
-		res.json(todo.toJSON());
+		req.user.addTodo(todo).then(function(){
+			return todo.reload();
+		}).then(function(){
+			res.json(todo.toJSON());
+		});
 	}, function(e){
 		res.status(400).json(e);
 	})

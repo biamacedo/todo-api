@@ -7,7 +7,7 @@ module.exports = function(db){
 				req.user = user;
 				next();
 			}, function(){
-				req.status(401),send()
+				req.status(401).send();
 			})
 		}
 	};
